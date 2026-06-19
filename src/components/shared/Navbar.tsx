@@ -27,6 +27,12 @@ export default function Navbar() {
           <div className="flex items-center gap-4">
             <SignedIn>
               <Link
+                href="/dashboard"
+                className="text-sm text-slate-300 hover:text-white transition-colors"
+              >
+                My Cases
+              </Link>
+              <Link
                 href="/onboard"
                 className="btn-secondary text-sm hidden sm:inline-flex"
               >

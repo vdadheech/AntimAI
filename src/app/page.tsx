@@ -94,8 +94,8 @@ export default function LandingPage() {
               </Link>
             </SignedOut>
             <SignedIn>
-              <Link href="/onboard" className="btn-primary text-lg px-8 py-4">
-                Start a New Case
+              <Link href="/dashboard" className="btn-primary text-lg px-8 py-4">
+                Go to Dashboard
               </Link>
             </SignedIn>
           </div>
@@ -211,8 +211,8 @@ export default function LandingPage() {
                 </Link>
               </SignedOut>
               <SignedIn>
-                <Link href="/onboard" className="btn-primary text-lg px-8 py-4 inline-block">
-                  Start a New Case
+                <Link href="/dashboard" className="btn-primary text-lg px-8 py-4 inline-block">
+                  Go to Dashboard
                 </Link>
               </SignedIn>
             </div>
