@@ -6,25 +6,19 @@
 
 export default function Logo({ size = "default" }: { size?: "small" | "default" | "large" }) {
   const sizes = {
-    small: { text: "text-lg", dot: "w-2 h-2" },
-    default: { text: "text-2xl", dot: "w-2.5 h-2.5" },
-    large: { text: "text-4xl", dot: "w-3 h-3" },
+    small: "text-lg",
+    default: "text-2xl",
+    large: "text-5xl",
   };
 
   const s = sizes[size];
 
   return (
-    <div className="flex items-center gap-1">
-      <div className="relative">
-        <span className={`${s.text} font-bold tracking-tight`}>
-          <span className="text-white">Antim</span>
-          <span className="text-gradient">AI</span>
-        </span>
+    <div className="flex items-center gap-2 group transition-transform duration-700 hover:scale-105">
+      <div className={`font-display font-medium tracking-widest uppercase ${s} engraved-text`}>
+        <span className="text-academia-fg">Antim</span>
+        <span className="text-gradient">AI</span>
       </div>
-      <div
-        className={`${s.dot} rounded-full bg-accent animate-pulse-glow`}
-        style={{ marginTop: "-8px" }}
-      />
     </div>
   );
 }

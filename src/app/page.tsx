@@ -1,232 +1,241 @@
 "use client";
 
 // ============================================================
-// AntimAI — Landing Page
+// AntimAI — Landing Page (Academia / Classical Theme)
 // ============================================================
 
 import Link from "next/link";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
-import Logo from "@/components/shared/Logo";
+import { BookOpen, ScrollText, Library, FileStack, ArrowRight } from "lucide-react";
 
 const features = [
   {
-    icon: "🤖",
+    icon: <BookOpen className="w-5 h-5 text-academia-accent" strokeWidth={1.5} />,
     title: "AI-Powered Checklist",
     description:
-      "Tell us about the assets and accounts. Our AI instantly generates a prioritized task list specific to your state and situation.",
+      "Tell us about the assets and accounts. Our intelligence engine instantly generates a prioritized task list specific to your state and situation.",
   },
   {
-    icon: "📄",
+    icon: <ScrollText className="w-5 h-5 text-academia-accent" strokeWidth={1.5} />,
     title: "Auto-Generated Letters",
     description:
-      "Download ready-to-submit application letters for banks, insurance companies, and government offices — pre-filled with all details.",
+      "Download ready-to-submit application letters for banks, insurance companies, and government offices — flawlessly pre-filled.",
   },
   {
-    icon: "📊",
+    icon: <Library className="w-5 h-5 text-academia-accent" strokeWidth={1.5} />,
     title: "Track Every Step",
     description:
-      "A clear dashboard shows what's done, what's urgent, and what's next. Never miss a deadline or forget a document.",
+      "A distinguished ledger shows what's done, what's urgent, and what's next. Never miss a deadline or forget a critical document.",
   },
 ];
 
 const steps = [
   {
-    number: "01",
+    number: "I",
     title: "Share the Details",
-    description: "Fill in basic information about the deceased, their assets, and your relationship.",
+    description: "Provide the fundamental information about the deceased, their assets, and your relationship.",
   },
   {
-    number: "02",
-    title: "Get Your Checklist",
-    description: "AI analyzes everything and creates a personalized, prioritized action plan.",
+    number: "II",
+    title: "Receive the Proclamation",
+    description: "Our systems analyze the jurisprudence to create a personalized, prioritized action plan.",
   },
   {
-    number: "03",
-    title: "Complete & Track",
-    description: "Work through tasks, generate letters, and mark items as done on your dashboard.",
+    number: "III",
+    title: "Execute & Archive",
+    description: "Work through tasks, generate formal letters, and mark items as completed in your ledger.",
   },
 ];
 
 export default function LandingPage() {
   return (
     <div className="relative">
-      {/* Background Effects */}
-      <div className="fixed inset-0 bg-grid pointer-events-none" />
-      <div className="fixed inset-0 bg-radial-glow pointer-events-none" />
-
+      {/* Note: The fixed paper texture and vignette are handled in layout.tsx */}
+      
       {/* ── Hero Section ── */}
-      <section className="relative min-h-[90vh] flex items-center justify-center px-4">
-        <div className="max-w-4xl mx-auto text-center">
+      <section className="relative min-h-[90vh] flex items-center justify-center px-4 py-24 sm:py-32">
+        <div className="max-w-4xl mx-auto text-center relative z-10 ornate-frame p-8 sm:p-16">
           {/* Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 mb-8 animate-fade-in">
-            <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-            <span className="text-sm text-accent font-medium">
-              AI-Powered • Built for India
+          <div className="inline-flex items-center justify-center mb-8">
+            <span className="font-display text-xs uppercase tracking-[0.25em] brass-text border border-academia-accent/30 px-6 py-2 rounded-full bg-academia-bg">
+              Built for Indian Jurisprudence
             </span>
           </div>
 
           {/* Headline */}
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 animate-slide-up">
-            Navigate life&apos;s hardest
-            <br />
-            <span className="text-gradient">paperwork</span>
+          <h1 className="font-heading text-5xl sm:text-6xl md:text-7xl lg:text-7xl leading-[1.1] tracking-tight mb-8 text-academia-fg">
+            Navigate life&apos;s hardest <br />
+            <span className="text-gradient engraved-text italic">administrative burdens.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-slate-400 max-w-2xl mx-auto mb-10 animate-slide-up"
-            style={{ animationDelay: "0.1s" }}
-          >
+          <p className="font-body text-lg sm:text-xl text-academia-muted-fg max-w-2xl mx-auto mb-12 leading-relaxed">
             When someone passes away, families face an overwhelming maze of legal 
-            and financial tasks. AntimAI guides you through every step — so you can 
-            focus on what truly matters.
+            and financial tasks. AntimAI serves as your dedicated guide through every step — 
+            so you can focus on what truly matters.
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 animate-slide-up"
-            style={{ animationDelay: "0.2s" }}
-          >
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-6">
             <SignedOut>
-              <Link href="/sign-up" className="btn-primary text-lg px-8 py-4">
-                Start Free — No Payment Needed
+              <Link href="/sign-up" className="btn-primary w-full sm:w-auto">
+                Begin the Process <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
-              <Link href="/sign-in" className="btn-secondary text-base px-6 py-3">
-                I have an account
+              <Link href="/sign-in" className="font-display uppercase text-xs tracking-widest text-academia-accent hover:text-[#D4B872] transition-colors duration-300">
+                Access Existing Ledger
               </Link>
             </SignedOut>
             <SignedIn>
-              <Link href="/dashboard" className="btn-primary text-lg px-8 py-4">
-                Go to Dashboard
+              <Link href="/dashboard" className="btn-primary w-full sm:w-auto">
+                Open Dashboard <ArrowRight className="ml-2 w-4 h-4" />
               </Link>
             </SignedIn>
           </div>
-
-          {/* Trust signal */}
-          <p className="text-sm text-slate-500 mt-6 animate-fade-in" style={{ animationDelay: "0.4s" }}>
-            🔒 Your data is encrypted and never shared. We handle sensitive information with care.
-          </p>
-        </div>
-
-        {/* Scroll indicator */}
-        <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-float">
-          <div className="w-6 h-10 rounded-full border-2 border-slate-600 flex items-start justify-center p-1.5">
-            <div className="w-1.5 h-3 rounded-full bg-accent animate-pulse" />
+          
+          <div className="mt-16 text-xs text-academia-muted-fg font-display uppercase tracking-widest">
+            — Trusted Guidance —
           </div>
         </div>
       </section>
+
+      <div className="ornate-divider" />
 
       {/* ── Features Section ── */}
-      <section className="relative py-24 px-4">
-        <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Everything you need, <span className="text-gradient">nothing you don&apos;t</span>
+      <section className="relative py-24 sm:py-32 px-4 max-w-7xl mx-auto">
+        <div className="text-center mb-20">
+          <span className="font-display text-xs text-academia-accent uppercase tracking-[0.3em] block mb-4">
+            Volume I
+          </span>
+          <h2 className="font-heading text-4xl sm:text-5xl mb-6">
+            Everything you need, <br /><span className="italic text-academia-muted-fg">nothing you don&apos;t</span>
+          </h2>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+          {features.map((feature) => (
+            <div
+              key={feature.title}
+              className="glass-card p-10 corner-flourish group"
+            >
+              <div className="w-14 h-14 rounded-full border border-academia-accent/30 bg-academia-bg flex items-center justify-center mb-6 shadow-inner">
+                {feature.icon}
+              </div>
+              <h3 className="font-heading text-2xl mb-4 group-hover:text-academia-accent transition-colors duration-300">{feature.title}</h3>
+              <p className="font-body text-academia-muted-fg leading-relaxed text-lg">
+                {feature.description}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <div className="ornate-divider" />
+
+      {/* ── Product Detail / Proclamation ── */}
+      <section className="relative py-24 sm:py-32 px-4 max-w-4xl mx-auto">
+        <div className="glass-card p-8 sm:p-16 corner-flourish bg-academia-bg-alt/50 relative">
+          <div className="text-center mb-10">
+            <div className="flex items-center justify-center gap-4 mb-4">
+              <div className="h-px bg-academia-accent/50 w-12" />
+              <span className="font-display text-xs text-academia-accent uppercase tracking-[0.3em]">
+                Proclamation
+              </span>
+              <div className="h-px bg-academia-accent/50 w-12" />
+            </div>
+            <h2 className="font-heading text-3xl sm:text-5xl leading-tight">
+              A dignified approach to <br /><span className="text-gradient">estate settlement.</span>
             </h2>
-            <p className="text-slate-400 max-w-xl mx-auto">
-              We&apos;ve simplified the overwhelming process into three powerful tools.
+          </div>
+          
+          <div className="font-body text-lg text-academia-muted-fg leading-[1.8] space-y-6">
+            <p className="drop-cap">
+              The burden of administrative duties following a loss is a profound challenge. 
+              We recognize that families are often forced to navigate complex bureaucratic 
+              systems during their most vulnerable moments. 
+            </p>
+            <p>
+              By translating convoluted legal requirements into clear, actionable steps, we restore 
+              a sense of order. Our system generates precise documentation, eliminating the 
+              uncertainty that often accompanies interactions with institutions and authorities.
             </p>
           </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {features.map((feature, index) => (
-              <div
-                key={feature.title}
-                className="glass-card p-8 animate-slide-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="text-4xl mb-4">{feature.icon}</div>
-                <h3 className="text-xl font-semibold mb-3">{feature.title}</h3>
-                <p className="text-slate-400 leading-relaxed">
-                  {feature.description}
-                </p>
-              </div>
-            ))}
-          </div>
         </div>
       </section>
+
+      <div className="ornate-divider" />
 
       {/* ── How It Works Section ── */}
-      <section className="relative py-24 px-4 border-t" style={{ borderColor: "var(--border-color)" }}>
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl sm:text-4xl font-bold mb-4">
-              Three steps to <span className="text-gradient">peace of mind</span>
-            </h2>
-          </div>
+      <section className="relative py-24 sm:py-32 px-4 max-w-5xl mx-auto">
+        <div className="text-center mb-20">
+          <span className="font-display text-xs text-academia-accent uppercase tracking-[0.3em] block mb-4">
+            Volume II
+          </span>
+          <h2 className="font-heading text-4xl sm:text-5xl mb-6">
+            Three steps to peace of mind
+          </h2>
+        </div>
 
-          <div className="space-y-12">
-            {steps.map((step, index) => (
-              <div
-                key={step.number}
-                className="flex items-start gap-6 animate-slide-up"
-                style={{ animationDelay: `${index * 0.15}s` }}
-              >
-                <div className="flex-shrink-0 w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold text-gradient"
-                  style={{
-                    background: "rgba(249, 115, 22, 0.08)",
-                    border: "1px solid rgba(249, 115, 22, 0.2)",
-                  }}
-                >
-                  {step.number}
-                </div>
-                <div>
-                  <h3 className="text-xl font-semibold mb-2">{step.title}</h3>
-                  <p className="text-slate-400 leading-relaxed">
-                    {step.description}
-                  </p>
-                </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+          {steps.map((step) => (
+            <div key={step.number} className="relative">
+              <div className="font-display text-6xl text-academia-bg-alt font-bold absolute -top-8 -left-4 -z-10 select-none" style={{ WebkitTextStroke: "1px rgba(201, 169, 98, 0.2)" }}>
+                {step.number}
               </div>
-            ))}
-          </div>
+              <div className="pt-4">
+                <span className="font-display text-xs text-academia-accent uppercase tracking-widest block mb-2">
+                  Phase {step.number}
+                </span>
+                <h3 className="font-heading text-2xl mb-4">{step.title}</h3>
+                <p className="font-body text-academia-muted-fg text-lg leading-relaxed">
+                  {step.description}
+                </p>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
+      <div className="ornate-divider" />
+
       {/* ── CTA Section ── */}
-      <section className="relative py-24 px-4">
-        <div className="max-w-3xl mx-auto text-center">
-          <div
-            className="glass-card p-12 relative overflow-hidden"
-          >
-            {/* Background glow */}
-            <div
-              className="absolute inset-0 opacity-30"
-              style={{
-                background:
-                  "radial-gradient(circle at 50% 50%, rgba(249, 115, 22, 0.15), transparent 70%)",
-              }}
-            />
-            <div className="relative z-10">
-              <div className="mb-6">
-                <Logo size="large" />
-              </div>
-              <h2 className="text-2xl sm:text-3xl font-bold mb-4">
-                Ready to get started?
-              </h2>
-              <p className="text-slate-400 mb-8 max-w-lg mx-auto">
-                Don&apos;t navigate this alone. Let AI handle the paperwork while you 
-                take care of your family.
-              </p>
-              <SignedOut>
-                <Link href="/sign-up" className="btn-primary text-lg px-8 py-4 inline-block">
-                  Create Free Account
-                </Link>
-              </SignedOut>
-              <SignedIn>
-                <Link href="/dashboard" className="btn-primary text-lg px-8 py-4 inline-block">
-                  Go to Dashboard
-                </Link>
-              </SignedIn>
-            </div>
+      <section className="relative py-32 px-4">
+        <div className="max-w-4xl mx-auto text-center relative z-10 ornate-frame p-12">
+          <div className="wax-seal-badge">
+            <FileStack className="w-4 h-4" />
           </div>
+          <h2 className="font-heading text-4xl sm:text-5xl mb-6 mt-4">
+            Ready to commence?
+          </h2>
+          <p className="font-body text-xl text-academia-muted-fg mb-10 max-w-xl mx-auto">
+            Do not navigate this alone. Allow our systems to handle the paperwork 
+            while you attend to your family.
+          </p>
+          <SignedOut>
+            <Link href="/sign-up" className="btn-primary inline-flex">
+              Establish a Ledger
+            </Link>
+          </SignedOut>
+          <SignedIn>
+            <Link href="/dashboard" className="btn-primary inline-flex">
+              Return to Dashboard
+            </Link>
+          </SignedIn>
         </div>
       </section>
 
       {/* ── Footer ── */}
-      <footer className="border-t py-8 px-4" style={{ borderColor: "var(--border-color)" }}>
-        <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
-          <Logo size="small" />
-          <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} AntimAI. Built with care for Indian families.
+      <footer className="border-t border-academia-border py-12 px-4 mt-12 bg-academia-bg">
+        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="font-display font-medium tracking-widest uppercase text-xl text-gradient">
+            AntimAI
+          </div>
+          <p className="font-body text-academia-muted-fg text-sm">
+            &copy; {new Date().getFullYear()} AntimAI. Conceived and constructed for Indian families.
           </p>
+          <div className="flex gap-4">
+            <Link href="#" className="font-display text-xs uppercase tracking-widest text-academia-muted-fg hover:text-academia-accent transition-colors">Privacy</Link>
+            <Link href="#" className="font-display text-xs uppercase tracking-widest text-academia-muted-fg hover:text-academia-accent transition-colors">Terms</Link>
+          </div>
         </div>
       </footer>
     </div>
